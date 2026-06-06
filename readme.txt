@@ -40,7 +40,7 @@ INSTRUCTIONS D'UTILISATION
 4. Page Panier : modifier les quantités, supprimer des
    articles, remplir le formulaire de livraison et valider.
 5. Connexion de démonstration :
-     Email    : jean.dupont@email.com
+     Email    : test@mail.com
      Mot de passe : Test1234!
 6. Ou créer un nouveau compte via la page Inscription.
 
