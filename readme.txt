@@ -10,6 +10,10 @@ Il simule les fonctionnalités essentielles d'une boutique
 en ligne moderne (style Zalando) : catalogue filtrable,
 panier dynamique, authentification simulée et commande.
 
+SITE EN LIGNE
+-------------
+https://stepz-inky.vercel.app/
+
 PAGES DU SITE
 -------------
 1. index.html         – Page d'accueil (héros + catégories + vedettes)

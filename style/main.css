@@ -346,9 +346,9 @@ footer { background: var(--footer-bg); color: var(--footer-text); margin-top: 10
 }
 .cat-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 .cat-card:hover img { transform: scale(1.05); }
-.cat-homme  { background-image: url(../images/shoe-3.jpg); }
-.cat-femme  { background-image: url(../images/shoe-5.jpg); }
-.cat-enfant { background-image: url(../images/shoe-7.jpg); }
+.cat-homme  { background-image: url(../images/shoe-3.webp); }
+.cat-femme  { background-image: url(../images/shoe-5.webp); }
+.cat-enfant { background-image: url(../images/shoe-7.webp); }
 .cat-overlay { position: absolute; inset: 0; z-index: 2; display: flex; align-items: flex-end; justify-content: flex-start; text-align: left; padding: 26px; }
 .cat-overlay h3 { font-family: var(--font-display); color: #fff; font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: .95; }
 .cat-overlay span { display: block; font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.85); margin-top: 6px; }

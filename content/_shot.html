@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Catalogue complet STEPZ – Chaussures Homme, Femme et Enfant." />
+  <title>Catalogue – STEPZ</title>
+  <script>(function(){var l=localStorage.getItem('stepz_lang')||'fr';document.documentElement.lang=l;document.documentElement.dir=(l==='ar')?'rtl':'ltr';if(localStorage.getItem('stepz_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
+  <script src="../javascript/animations.js"></script>
+  <link rel="stylesheet" href="../style/main.css" />
+  <link rel="stylesheet" href="../style/products.css" />
+<style>*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1!important;transform:none!important}</style></head>
+<body>
+
+  <header>
+    <nav class="navbar" aria-label="Navigation principale">
+      <div class="nav-container">
+        <a href="../index.html" class="nav-logo" aria-label="STEPZ - Accueil">STEP<span>Z</span></a>
+
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links" role="menubar">
+          <li role="none"><a href="../index.html" role="menuitem" data-i18n="nav_home">Accueil</a></li>
+          <li role="none"><a href="products.html" class="active" role="menuitem" data-i18n="nav_products">Produits</a></li>
+          <li role="none" class="cart-li"><a href="order.html" class="nav-cart-link" role="menuitem">
+            <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/>
+              <path d="M1 1h3.2l2.1 12a2 2 0 0 0 2 1.65h8.4a2 2 0 0 0 2-1.6L21.5 6H5.2"/>
+            </svg>
+            <span id="cart-count">0</span>
+            <span class="sr-only" data-i18n="nav_cart">Panier</span>
+          </a>
+            <div class="mini-cart" id="mini-cart"></div>
+          </li>
+          <li role="none"><a href="login.html" id="nav-account" role="menuitem">Mon Compte</a></li>
+          <li role="none"><button id="nav-logout" data-i18n="nav_logout" style="display:none;">Déconnexion</button></li>
+          <li role="none"><button id="theme-toggle" class="icon-btn" type="button" aria-label="Thème">🌙</button></li>
+          <li role="none"><button id="lang-toggle" class="lang-toggle" type="button">العربية</button></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="page-header">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="../index.html" data-i18n="nav_home">Accueil</a><span class="sep">/</span><span data-i18n="pp_title">Nos Chaussures</span>
+      </nav>
+      <h1 data-i18n="pp_title">Nos Chaussures</h1>
+      <p><span data-i18n="pp_sub">Homme, Femme &amp; Enfant —</span> <span id="results-count"></span></p>
+    </div>
+
+    <div class="products-toolbar" role="search">
+      <div class="search-wrap">
+        <input
+          type="search"
+          id="search-input"
+          data-i18n-ph="search_ph"
+          placeholder="Rechercher une chaussure, une marque…"
+          aria-label="Rechercher un produit"
+        />
+      </div>
+      <div class="sort-wrap">
+        <label for="sort-select" data-i18n="sort_by">Trier par :</label>
+        <select id="sort-select" aria-label="Trier les produits">
+          <option value="default" data-i18n="sort_default">Pertinence</option>
+          <option value="price-asc" data-i18n="sort_price_asc">Prix croissant</option>
+          <option value="price-desc" data-i18n="sort_price_desc">Prix décroissant</option>
+          <option value="rating" data-i18n="sort_rating">Mieux notés</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="filters-wrap" role="group" aria-label="Filtrer par catégorie">
+      <span class="filter-label" data-i18n="filter_cat">Catégorie :</span>
+      <button class="filter-btn active" data-category="tous" type="button" data-i18n="filter_all">Tous</button>
+      <button class="filter-btn" data-category="homme"  type="button" data-i18n="f_homme">Homme</button>
+      <button class="filter-btn" data-category="femme"  type="button" data-i18n="f_femme">Femme</button>
+      <button class="filter-btn" data-category="enfant" type="button" data-i18n="f_enfant">Enfant</button>
+    </div>
+
+    <section class="products-section">
+      <div id="product-grid" aria-label="Liste des produits">
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo">STEP<span>Z</span></a>
+        <p data-i18n="footer_tagline">Votre destination chaussures depuis 2026. Qualité, style et confort pour toute la famille.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_collections">Collections</h4>
+        <ul>
+          <li><a href="products.html?cat=homme" data-i18n="f_homme">Homme</a></li>
+          <li><a href="products.html?cat=femme" data-i18n="f_femme">Femme</a></li>
+          <li><a href="products.html?cat=enfant" data-i18n="f_enfant">Enfant</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_service">Service</h4>
+        <ul>
+          <li><a href="infos.html#livraison" data-i18n="f_livraison">Livraison</a></li>
+          <li><a href="infos.html#retours" data-i18n="f_retours">Retours</a></li>
+          <li><a href="infos.html#faq" data-i18n="f_faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer_account">Compte</h4>
+        <ul>
+          <li><a href="login.html" data-i18n="f_login">Connexion</a></li>
+          <li><a href="register.html" data-i18n="f_register">Inscription</a></li>
+          <li><a href="order.html" data-i18n="nav_cart">Panier</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="copyright">&copy; 2026 STEPZ. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="../javascript/data.js"></script>
+  <script src="../javascript/i18n.js"></script>
+  <script src="../javascript/nav.js"></script>
+  <script src="../javascript/products.js"></script>
+  <script>
+
+    const hbg = document.getElementById("hamburger");
+    const nl  = document.getElementById("nav-links");
+    hbg.addEventListener("click", () => {
+      hbg.classList.toggle("open");
+      nl.classList.toggle("open");
+      hbg.setAttribute("aria-expanded", nl.classList.contains("open"));
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedCat = sessionStorage.getItem("filterCat");
+      if (savedCat) {
+        sessionStorage.removeItem("filterCat");
+        const btn = document.querySelector(`.filter-btn[data-category="${savedCat}"]`);
+        if (btn) btn.click();
+      }
+    });
+  </script>
+</body>
+</html>
+
