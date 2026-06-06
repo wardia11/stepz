@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mon panier et commande – STEPZ." />
+  <title>Mon Panier – STEPZ</title>
+  <script>(function(){var l=localStorage.getItem('stepz_lang')||'fr';document.documentElement.lang=l;document.documentElement.dir=(l==='ar')?'rtl':'ltr';if(localStorage.getItem('stepz_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
+  <link rel="stylesheet" href="../style/main.css" />
+  <link rel="stylesheet" href="../style/order.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="navbar" aria-label="Navigation principale">
+      <div class="nav-container">
+        <a href="../index.html" class="nav-logo" aria-label="STEPZ - Accueil">STEP<span>Z</span></a>
+
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links" role="menubar">
+          <li role="none"><a href="../index.html" role="menuitem" data-i18n="nav_home">Accueil</a></li>
+          <li role="none"><a href="products.html" role="menuitem" data-i18n="nav_products">Produits</a></li>
+          <li role="none" class="cart-li"><a href="order.html" class="nav-cart-link active" role="menuitem">
+            <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/>
+              <path d="M1 1h3.2l2.1 12a2 2 0 0 0 2 1.65h8.4a2 2 0 0 0 2-1.6L21.5 6H5.2"/>
+            </svg>
+            <span id="cart-count">0</span>
+            <span class="sr-only" data-i18n="nav_cart">Panier</span>
+          </a>
+            <div class="mini-cart" id="mini-cart"></div>
+          </li>
+          <li role="none"><a href="login.html" id="nav-account" role="menuitem">Mon Compte</a></li>
+          <li role="none"><button id="nav-logout" data-i18n="nav_logout" style="display:none;">Déconnexion</button></li>
+          <li role="none"><button id="theme-toggle" class="icon-btn" type="button" aria-label="Thème">🌙</button></li>
+          <li role="none"><button id="lang-toggle" class="lang-toggle" type="button">العربية</button></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="order-page">
+      <h1 data-i18n="op_title">Mon Panier</h1>
+      <p class="page-subtitle" data-i18n="op_sub">Vérifiez vos articles avant de finaliser la commande.</p>
+
+      <div id="order-confirm" role="alert" aria-live="polite">
+        <div class="confirm-check" aria-hidden="true">&#10003;</div>
+        <h2 data-i18n="order_confirmed">Commande confirmée !</h2>
+        <p><span data-i18n="confirm_thanks">Merci</span> <strong id="confirm-name"></strong><span data-i18n="confirm_rest">, votre commande a bien été enregistrée.</span><br /><span data-i18n="confirm_email">Un email de confirmation vous sera envoyé.</span></p>
+        <a href="products.html" class="btn-primary" data-i18n="continue_shopping">Continuer mes achats</a>
+      </div>
+
+      <div class="order-layout">
+
+        <div>
+
+          <section class="cart-section" aria-label="Articles dans le panier">
+            <h2 data-i18n="op_my_items">Mes articles</h2>
+            <div id="cart-items">
+
+            </div>
+          </section>
+
+          <section class="delivery-section" aria-label="Informations de livraison">
+            <h2 data-i18n="op_delivery_info">Informations de livraison</h2>
+
+            <form id="order-form" class="delivery-form" novalidate>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="o-firstname" data-i18n="lbl_firstname">Prénom</label>
+                  <input type="text" id="o-firstname" name="firstname"
+                    data-i18n-ph="ph_firstname" placeholder="Mohamed" autocomplete="given-name" required />
+                  <span class="field-msg" id="o-firstname-err" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="o-lastname" data-i18n="lbl_lastname">Nom</label>
+                  <input type="text" id="o-lastname" name="lastname"
+                    data-i18n-ph="ph_lastname" placeholder="Amine" autocomplete="family-name" required />
+                  <span class="field-msg" id="o-lastname-err" role="alert"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="o-email" data-i18n="lbl_email">Email</label>
+                <input type="email" id="o-email" name="email"
+                  data-i18n-ph="ph_email" placeholder="mohamed.amine@email.com" autocomplete="email" required />
+                <span class="field-msg" id="o-email-err" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="o-phone" data-i18n="lbl_phone">Téléphone</label>
+                <input type="tel" id="o-phone" name="phone"
+                  data-i18n-ph="ph_phone" placeholder="0555 12 34 56" autocomplete="tel" required />
+                <span class="field-msg" id="o-phone-err" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="o-address" data-i18n="lbl_address">Adresse</label>
+                <input type="text" id="o-address" name="address"
+                  data-i18n-ph="ph_address" placeholder="12 rue Didouche Mourad" autocomplete="street-address" required />
+                <span class="field-msg" id="o-address-err" role="alert"></span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="o-zip" data-i18n="lbl_zip">Code postal</label>
+                  <input type="text" id="o-zip" name="zip"
+                    data-i18n-ph="ph_zip" placeholder="16000" autocomplete="postal-code" required />
+                  <span class="field-msg" id="o-zip-err" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="o-city" data-i18n="lbl_city">Ville</label>
+                  <input type="text" id="o-city" name="city"
+                    data-i18n-ph="ph_city" placeholder="Alger" autocomplete="address-level2" required />
+                  <span class="field-msg" id="o-city-err" role="alert"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="o-payment" data-i18n="lbl_payment">Mode de paiement</label>
+                <select id="o-payment" name="payment" aria-label="Mode de paiement">
+                  <option value="card" data-i18n="pay_card">Carte bancaire</option>
+                  <option value="paypal" data-i18n="pay_paypal">PayPal</option>
+                  <option value="transfer" data-i18n="pay_transfer">Virement bancaire</option>
+                </select>
+              </div>
+
+              <span class="field-msg" id="order-global-msg" role="alert"></span>
+              <button type="submit" class="submit-order" data-i18n="confirm_order_btn">Confirmer la commande</button>
+
+            </form>
+          </section>
+
+        </div>
+
+        <aside id="cart-summary" aria-label="Résumé de commande" style="display:none;">
+          <h2 data-i18n="summary">Résumé</h2>
+          <div class="summary-row">
+            <span data-i18n="subtotal">Sous-total</span>
+            <span id="summary-subtotal">0 DA</span>
+          </div>
+          <div class="summary-row">
+            <span data-i18n="shipping">Livraison</span>
+            <span id="summary-shipping">–</span>
+          </div>
+          <p class="shipping-note" data-i18n="shipping_note">Livraison offerte dès 10 000 DA</p>
+          <div class="summary-row total">
+            <span data-i18n="total">Total</span>
+            <span id="summary-total">0 DA</span>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo">STEP<span>Z</span></a>
+        <p data-i18n="footer_tagline_short">Votre destination chaussures depuis 2026.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_nav">Navigation</h4>
+        <ul>
+          <li><a href="../index.html" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="products.html" data-i18n="nav_products">Produits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_account">Compte</h4>
+        <ul>
+          <li><a href="login.html" data-i18n="f_login">Connexion</a></li>
+          <li><a href="register.html" data-i18n="f_register">Inscription</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="copyright">&copy; 2026 STEPZ. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="../javascript/data.js"></script>
+  <script src="../javascript/i18n.js"></script>
+  <script src="../javascript/nav.js"></script>
+  <script src="../javascript/cart.js"></script>
+  <script>
+    const hbg = document.getElementById("hamburger");
+    const nl  = document.getElementById("nav-links");
+    hbg.addEventListener("click", () => {
+      hbg.classList.toggle("open");
+      nl.classList.toggle("open");
+      hbg.setAttribute("aria-expanded", nl.classList.contains("open"));
+    });
+  </script>
+</body>
+</html>

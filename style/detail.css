@@ -1,0 +1,68 @@
+.pd-wrap { max-width: 1320px; margin: 0 auto; padding: 26px 28px 90px; }
+.pd-breadcrumb { margin-bottom: 24px; }
+
+.pd-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 50px; align-items: start; }
+
+.pd-gallery {
+  position: relative; background: var(--light-grey);
+  border-radius: 18px; overflow: hidden; aspect-ratio: 1/1;
+  display: flex; align-items: center; justify-content: center;
+}
+.pd-gallery-bar { position: absolute; top: 0; left: 8%; right: 8%; height: 6px; background: var(--ink-fixed); border-radius: 0 0 4px 4px; z-index: 2; }
+.pd-gallery img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
+[data-theme="dark"] .pd-gallery img { mix-blend-mode: normal; }
+.pd-badge { position: absolute; top: 18px; left: 18px; z-index: 2; }
+
+.pd-info { padding-top: 4px; }
+.pd-brand { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--grey); margin-bottom: 8px; }
+.pd-name { font-family: var(--font-display); font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.02; }
+.pd-ref { color: var(--grey); font-size: .82rem; margin-top: 6px; }
+.pd-rating { display: flex; align-items: center; gap: 4px; margin: 14px 0; }
+.pd-rating .star { font-size: .9rem; }
+.pd-rating .star.full { color: #ffb400; }
+.pd-rating .star.half { color: #ffb400; opacity: .55; }
+.pd-rating .star.empty { color: var(--border); }
+.pd-rating .review-count { font-size: .8rem; color: var(--grey); margin-left: 4px; }
+
+.pd-price { font-size: 1.9rem; font-weight: 800; margin: 8px 0 4px; color: var(--black); }
+.pd-old { font-size: 1.1rem; color: var(--grey); text-decoration: line-through; font-weight: 600; margin-left: 8px; }
+.pd-guide { display: inline-block; font-size: .85rem; color: var(--primary); text-decoration: underline; text-underline-offset: 3px; margin: 4px 0 22px; }
+
+.pd-fav { display: flex; align-items: center; gap: 10px; margin-bottom: 26px; color: var(--dark); font-size: .9rem; font-weight: 600; }
+.pd-fav .wishlist-btn { position: static; box-shadow: none; border: 1.5px solid var(--border); background: var(--white); }
+
+.pd-field { margin-bottom: 22px; }
+.pd-label { display: block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--grey); margin-bottom: 10px; }
+.pd-sizes { display: flex; gap: 10px; flex-wrap: wrap; }
+.pd-size {
+  min-width: 54px; padding: 12px 14px;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  background: var(--white); font-weight: 700; font-size: .9rem; color: var(--black);
+  cursor: pointer; transition: border-color .15s, background .15s, color .15s;
+}
+.pd-size:hover { border-color: var(--black); }
+.pd-size.selected { background: var(--ink-fixed); color: #fff; border-color: var(--ink-fixed); }
+
+.pd-color { display: inline-flex; align-items: center; gap: 10px; font-size: .92rem; font-weight: 600; }
+.pd-color-dot { width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--border); display: inline-block; }
+
+.pd-add {
+  width: 100%; max-width: 440px;
+  background: var(--ink-fixed); color: #fff;
+  padding: 17px 24px; border: none; border-radius: 100px;
+  font-size: .95rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+  cursor: pointer; transition: background .2s, transform .15s; margin-top: 4px;
+}
+.pd-add:hover:not(:disabled) { background: var(--primary); transform: translateY(-2px); }
+.pd-add:disabled { opacity: .45; cursor: not-allowed; }
+
+.pd-desc { margin-top: 34px; border-top: 1px solid var(--border); padding-top: 26px; }
+.pd-desc h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; }
+.pd-desc p { color: var(--dark); font-size: .95rem; line-height: 1.7; max-width: 520px; }
+.pd-perks { margin-top: 22px; display: flex; flex-direction: column; gap: 9px; }
+.pd-perks li { font-size: .86rem; color: var(--dark); }
+
+.pd-notfound { text-align: center; padding: 100px 20px; }
+.pd-notfound h1 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 22px; }
+
+@media (max-width: 860px) { .pd-grid { grid-template-columns: 1fr; gap: 30px; } }

@@ -1,0 +1,129 @@
+.auth-page {
+  min-height: calc(100vh - 64px);
+  background: var(--light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+}
+.auth-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 480px;
+  padding: 48px 40px;
+  box-shadow: var(--shadow);
+}
+.auth-card h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  margin-bottom: 6px;
+}
+.auth-card .auth-subtitle {
+  color: var(--grey);
+  font-size: .88rem;
+  margin-bottom: 36px;
+}
+.auth-card .auth-subtitle a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+.form-group input {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 11px 14px;
+  font-size: .92rem;
+  color: var(--black);
+  outline: none;
+  transition: border-color .2s;
+}
+.form-group input:focus {
+  border-color: var(--black);
+}
+.form-group input.input-error {
+  border-color: var(--error);
+}
+
+.field-msg {
+  display: block;
+  font-size: .76rem;
+  margin-top: 5px;
+  font-weight: 500;
+}
+.field-msg.error  { color: var(--error); }
+.field-msg.success{ color: var(--success); }
+
+#register-msg,
+#login-msg {
+  text-align: center;
+  font-size: .88rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  min-height: 20px;
+}
+
+.auth-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  font-size: .92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background .2s;
+}
+.auth-submit:hover { background: var(--primary); }
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0;
+  color: var(--grey);
+  font-size: .8rem;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.pwd-hints {
+  font-size: .75rem;
+  color: var(--grey);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+@media (max-width: 520px) {
+  .auth-card { padding: 32px 20px; }
+  .form-row  { grid-template-columns: 1fr; gap: 0; }
+}
